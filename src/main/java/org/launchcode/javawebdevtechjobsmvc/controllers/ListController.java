@@ -20,18 +20,23 @@ public class ListController {
 
     static HashMap<String, String> columnChoices = new HashMap<>();
     static HashMap<String, Object> tableChoices = new HashMap<>();
+    static HashMap<String, Object> allChoices = new HashMap<>();
+    static ArrayList<Job> jobs = new ArrayList<>();
 
     public ListController () {
+
         columnChoices.put("all", "All");
         columnChoices.put("employer", "Employer");
         columnChoices.put("location", "Location");
         columnChoices.put("positionType", "Position Type");
         columnChoices.put("coreCompetency", "Skill");
 
+        tableChoices.put("all","All");
         tableChoices.put("employer", JobData.getAllEmployers());
         tableChoices.put("location", JobData.getAllLocations());
         tableChoices.put("positionType", JobData.getAllPositionTypes());
         tableChoices.put("coreCompetency", JobData.getAllCoreCompetency());
+        //allChoices.put("all",JobData.alljobs());
     }
 
     @RequestMapping(value = "")
@@ -42,13 +47,16 @@ public class ListController {
         model.addAttribute("locations", JobData.getAllLocations());
         model.addAttribute("positions", JobData.getAllPositionTypes());
         model.addAttribute("skills", JobData.getAllCoreCompetency());
+        model.addAttribute("all", "All");
+
 
         return "list";
     }
 
     @RequestMapping(value = "jobs")
     public String listJobsByColumnAndValue(Model model, @RequestParam String column, @RequestParam String value) {
-        ArrayList<Job> jobs;
+        //ArrayList<Job> jobs;
+        System.out.println("**Col**>> "+column+"  <<****** Santhoshni Test ******Value***>>  "+value);
         if (column.toLowerCase().equals("all")){
             jobs = JobData.findAll();
             model.addAttribute("title", "All Jobs");

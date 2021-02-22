@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
 </head>
-<body>
+<body class="container">
 
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
-
+    <h3>Dinesh Testing Search</h3>
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
     <form th:action="@{/search/results}" method = "post">
@@ -17,7 +17,7 @@
             <span th:each="column : ${columns}">
                 <input
                         type="radio"
-                        name="searchType"
+0                        name="searchType"
                         th:id="${column.key}"
                         th:value="${column.key}"
                         th:checked="${column.key == 'all'}"/>
@@ -37,8 +37,41 @@
     <hr />
 
     <!-- TODO #4 - Loop over the search results to display all job fields. -->
+<!--    <div class="container body-content">-->
+<!--        <h3>Test Santhoshni</h3>-->
+<!--        <h1 th:text="${#strings.capitalizeWords(title)}"></h1>-->
 
-</div>
+        <table class="table table-striped" th:each = "job : ${resultJobs}">
+
+            <tr>
+                <td th:text = "ID"></td>
+                <td th:text = "${job.id}"></td>
+            </tr>
+            <tr>
+                <td th:text = "Name"></td>
+                <td th:text = "${job.name}"></td>
+            </tr>
+            <tr>
+                <td th:text = "Employer"></td>
+                <td th:text = "${job.employer}"></td>
+            </tr>
+            <tr>
+                <td th:text = "Location"></td>
+                <td th:text = "${job.location}"></td>
+            </tr>
+            <tr>
+                <td th:text = "PositionType"></td>
+                <td th:text = "${job.positionType}"></td>
+            </tr>
+            <tr>
+                <td th:text = "Skill"></td>
+                <td th:text = "${job.coreCompetency}"></td>
+            </tr>
+        </table>
+    </div>
+
+
+<!--</div>-->
 
 </body>
 </html>

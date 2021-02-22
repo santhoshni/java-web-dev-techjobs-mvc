@@ -2,9 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org/">
     <head th:replace="fragments :: head"></head>
 
-    <body>
-
-        <div th:replace="fragments :: page-header"></div>
+    <body class="container">
+    <h3>Dinesh Testing List htm</h3>
+        <div th:replace="fragments :: page-header" ></div>
 
         <div class="container body-content">
             <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
@@ -20,7 +20,7 @@
             <tr>
                 <!-- TODO #2: Complete the View Jobs By Category Table. -->
 
-                <td></td> <!-- Feel free to remove or modify this element if necessary. -->
+<!--                <td></td> &lt;!&ndash; Feel free to remove or modify this element if necessary. &ndash;&gt;-->
 
                 <td th:each="category : ${tableChoices}">
                     <ul>
