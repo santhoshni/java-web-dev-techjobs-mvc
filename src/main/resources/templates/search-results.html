@@ -6,7 +6,7 @@
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
-    <h3>Test Santhoshni</h3>
+
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
     <table class="table table-striped" th:each = "job : ${resultJobs}">
